@@ -5,10 +5,6 @@ export async function query(): Promise<any> {
   return request('/api/users');
 }
 
-// export async function queryCurrent(): Promise<any> {
-//   return request('/api/currentUser');
-// }
-
 export async function queryNotices(): Promise<any> {
   return request('/api/notices');
 }
@@ -24,34 +20,35 @@ export async function updateUserInfo(payload: object) {
   });
 }
 
-export async function getAllBulletin() {
-  return request(`${baseURL}/api/getBulletin`);
+export async function getBreakInfo() {
+  return request(`${baseURL}/api/getBreakinfo`);
 }
 
-export async function addBulletin(payload: object){
-  return request(`${baseURL}/api/addBulletin`, {
+export async function addBreakInfo(payload: object){
+  return request(`${baseURL}/api/addBreakinfo`, {
     method: 'POST',
     data: payload,
   });
 }
 
-export async function updateBulletin(payload: object){
-  return request(`${baseURL}/api/updateBulletin`, {
-    method: 'POST',
-    data: payload,
-  });
-}
 
-export async function getHealthInfo(userid: any) {
-  return request(`${baseURL}/api/getHealthy?userid=${userid}`);
+export async function getLampInfo() {
+  return request(`${baseURL}/api/getLightData`);
 }
 
 export async function getThreshold() {
-  return request(`${baseURL}/api/getThreshold`);
+  return request(`${baseURL}/api/getLightThreshold`);
 }
 
 export async function updateThreshold(payload: object){
-  return request(`${baseURL}/api/updateThreshold`, {
+  return request(`${baseURL}/api/updateLightThreshold`, {
+    method: 'POST',
+    data: payload,
+  });
+}
+
+export async function updateLightStatus(payload: object){
+  return request(`${baseURL}/api/updateLightStatus`, {
     method: 'POST',
     data: payload,
   });

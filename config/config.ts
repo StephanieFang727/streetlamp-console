@@ -28,7 +28,7 @@ export default defineConfig({
   targets: {
     ie: 11,
   },
-  devtool:'source-map',
+  devtool: 'source-map',
   // umi routes: https://umijs.org/docs/routing
   routes: [
     {
@@ -56,24 +56,22 @@ export default defineConfig({
               redirect: '/list',
             },
             {
-              name: 'bulletin',
+              path: '/lamp',
+              name: 'lamp.info',
+              icon: 'audit',
+              component: './LampInfo',
+            },
+            {
+              name: 'breakInfo',
               icon: 'table',
               path: '/list',
-              component: './Bulletin',
+              component: './BreakInfo',
             },
             {
-              path: '/threshold',
-              name: 'threshold',
-              icon: 'stock',
-              component: './ThresholdSettings',
-              authority: ['admin'],
-            },
-            {
-              path: '/health',
-              name: 'heath.info',
-              icon: 'audit',
-              component: './HealthInfo',
-              authority: ['user'],
+              path: '/setting',
+              name: 'setting',
+              icon: 'setting',
+              component: './SystemSettings',
             },
             {
               name: 'account.settings',
@@ -116,7 +114,7 @@ export default defineConfig({
           resourcePath: string;
         },
         _: string,
-        localName: string
+        localName: string,
       ) => {
         if (
           context.resourcePath.includes('node_modules') ||

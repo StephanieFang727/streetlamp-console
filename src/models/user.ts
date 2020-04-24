@@ -1,6 +1,7 @@
 import { Effect, Reducer } from 'umi';
 
-import {queryCurrent, updateUserInfo, getThreshold, updateThreshold} from '@/services/user';
+import {queryCurrent, updateUserInfo, getThreshold,
+  updateThreshold,updateLightStatus} from '@/services/user';
 import {notification} from "antd";
 import {Subscription} from "@@/plugin-dva/connect";
 
@@ -32,6 +33,7 @@ export interface UserModelType {
     updateUserInfo: Effect;
     fetchThreshold: Effect;
     updateThreshold: Effect;
+    updateLightStatus:Effect;
   };
   reducers: {
     save: Reducer;
@@ -52,13 +54,6 @@ const UserModel: UserModelType = {
   },
 
   effects: {
-    // *fetch(_, { call, put }) {
-    //   const response = yield call(queryUsers);
-    //   yield put({
-    //     type: 'save',
-    //     payload: response,
-    //   });
-    // },
     *fetchCurrent({payload:{ userid }}, { call, put }) {
       const response = yield call(queryCurrent, userid);
       yield put({
@@ -77,11 +72,11 @@ const UserModel: UserModelType = {
       const response = yield call(updateUserInfo, payload);
       if (response.status==='success'){
         notification.success({
-          message: 'update successfully!'
+          message: '更新成功!'
         })
       }else{
         notification.error({
-          message: 'fail to update!'
+          message: '更新失败!'
         })
       }
       yield put({
@@ -93,16 +88,33 @@ const UserModel: UserModelType = {
       const response = yield call(updateThreshold, payload);
       if (response.status==='success'){
         notification.success({
-          message: 'update successfully!'
+          message: '更新成功！'
         })
       }else{
         notification.error({
-          message: 'fail to update!'
+          message: '更新失败！'
         })
       }
       yield put({
         type: 'fetchThreshold',
       });
+    },
+    *updateLightStatus({id, state},{call,put}){
+      const payload = {
+        light_id: id,
+        light_status: state,
+      }
+      const response = yield call(updateLightStatus,payload);
+      const mes = state ? '开启' : '关闭';
+      if (response.status==='success'){
+        notification.success({
+          message: `路灯${mes}成功！`
+        })
+      }else{
+        notification.error({
+          message: `路灯${mes}失败！`
+        })
+      }
     }
   },
 
@@ -138,7 +150,7 @@ const UserModel: UserModelType = {
   subscriptions: {
     setup ({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/threshold') {
+        if (pathname === '/setting') {
           dispatch({
             type: 'fetchThreshold',
           })

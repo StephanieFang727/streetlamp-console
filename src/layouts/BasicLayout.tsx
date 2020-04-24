@@ -53,9 +53,7 @@ const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
     return Authorized.check(item.authority, localItem, null) as MenuDataItem;
   });
 
-const defaultFooterDom = (
-  <div></div>
-);
+const defaultFooterDom = <div></div>;
 
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const {
@@ -75,8 +73,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       dispatch({
         type: 'user/fetchCurrent',
         payload: {
-          userid: localStorage.getItem('userid')
-        }
+          userid: localStorage.getItem('userid'),
+        },
       });
     }
   }, []);
@@ -101,11 +99,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   return (
     <ProLayout
       formatMessage={formatMessage}
-      menuHeaderRender={(logoDom, titleDom) => (
-        <Link to="/">
-          {titleDom}
-        </Link>
-      )}
+      menuHeaderRender={(logoDom, titleDom) => <Link to="/">{titleDom}</Link>}
       onCollapse={handleMenuCollapse}
       menuItemRender={(menuItemProps, defaultDom) => {
         if (menuItemProps.isUrl || menuItemProps.children || !menuItemProps.path) {

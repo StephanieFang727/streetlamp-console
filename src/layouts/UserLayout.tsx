@@ -1,4 +1,4 @@
-import {MenuDataItem, getMenuData, getPageTitle } from '@ant-design/pro-layout';
+import { MenuDataItem, getMenuData, getPageTitle } from '@ant-design/pro-layout';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link, useIntl, ConnectProps, connect } from 'umi';
 import React from 'react';
@@ -44,10 +44,10 @@ const UserLayout: React.FC<UserLayoutProps> = (props) => {
           <div className={styles.top}>
             <div className={styles.header}>
               <Link to="/">
-                <span className={styles.title}>中老年健康数据管理平台</span>
+                <span className={styles.title}>城市路灯智慧照明系统</span>
               </Link>
             </div>
-            <div className={styles.desc}>中老年个人健康数据采集和管理系统服务平台</div>
+            <div className={styles.desc}>城市路灯智慧照明系统平台</div>
           </div>
           {children}
         </div>

@@ -41,31 +41,29 @@ class AvatarDropdown extends React.Component<GlobalHeaderRightProps> {
     } = this.props;
     const menuHeaderDropdown = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
-        <Menu.Item key="logout">
-          退出登录
-        </Menu.Item>
+        <Menu.Item key="logout">退出登录</Menu.Item>
       </Menu>
     );
-      return (
-        <div>
-          <span className={`${styles.action} ${styles.account}`}>
-            <span className={styles.name}>{currentUser.person_name}</span>
-             <HeaderDropdown overlay={menuHeaderDropdown}>
-              <LogoutOutlined />
-             </HeaderDropdown>
-          </span>
-        </div>
-    )
-  // : (
-  //     <span className={`${styles.action} ${styles.account}`}>
-  //       <Spin
-  //         size="small"
-  //         style={{
-  //           marginLeft: 8,
-  //           marginRight: 8,
-  //         }}
-  //       />
-  //     </span>
+    return (
+      <div>
+        <span className={`${styles.action} ${styles.account}`}>
+          <span className={styles.name}>{currentUser.person_name}</span>
+          <HeaderDropdown overlay={menuHeaderDropdown}>
+            <LogoutOutlined />
+          </HeaderDropdown>
+        </span>
+      </div>
+    );
+    // : (
+    //     <span className={`${styles.action} ${styles.account}`}>
+    //       <Spin
+    //         size="small"
+    //         style={{
+    //           marginLeft: 8,
+    //           marginRight: 8,
+    //         }}
+    //       />
+    //     </span>
   }
 }
 

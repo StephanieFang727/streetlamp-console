@@ -1,16 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import { Link, connect, Dispatch } from 'umi';
+import { connect } from 'umi';
 import {
   Form,
   Input,
-  Tooltip,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
   Button,
-  AutoComplete, Spin,
+  Spin,
 } from 'antd';
 import {ConnectState} from "@/models/connect";
 
@@ -99,7 +93,7 @@ const AccountSettings = ({currentUser, loading, dispatch}) => {
   );
 };
 
-export default connect(({ user, global, loading }: ConnectState) => ({
+export default connect(({ user,loading }: ConnectState) => ({
   currentUser: user.currentUser,
   loading: loading.effects['user/fetchCurrent']
 }))(AccountSettings);

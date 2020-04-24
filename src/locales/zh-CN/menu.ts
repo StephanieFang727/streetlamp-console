@@ -49,7 +49,7 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
-  'menu.bulletin': '公告栏',
-  'menu.heath.info': '健康信息',
-  'menu.threshold':'阈值设置'
+  'menu.breakInfo': '维修信息',
+  'menu.lamp.info': '路灯信息',
+  'menu.setting':'系统设置'
 };

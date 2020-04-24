@@ -3,14 +3,8 @@ import { Link, connect, Dispatch } from 'umi';
 import {
   Form,
   Input,
-  Tooltip,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
   Button,
-  AutoComplete, Spin,
+  Spin,
 } from 'antd';
 import {ConnectState} from "@/models/connect";
 
@@ -69,65 +63,11 @@ const ThresholdSettings = ({threshold, loading, dispatch}) => {
       scrollToFirstError
     >
       <Form.Item
-        name="threshold_bloodPressure_up"
-        label="血压上阈值"
+        name="threshold_light"
+        label="光照阈值"
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        name="threshold_bloodPressure_low"
-        label="血压下阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="threshold_bloodSugar_up"
-        label="血糖上阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="threshold_bloodSugar_low"
-        label="血糖下阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="threshold_pulse_up"
-        label="脉搏上阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="threshold_pulse_low"
-        label="脉搏下阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="threshold_heartRate_up"
-        label="心率上阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-      name="threshold_heartRate_low"
-      label="心率下阈值"
-    >
-      <Input />
-    </Form.Item>
-      <Form.Item
-        name="threshold_temperature_up"
-        label="体温上阈值"
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-      name="threshold_temperature_low"
-      label="体温下阈值"
-    >
-      <Input />
-    </Form.Item>
       <Form.Item {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit">
           更新

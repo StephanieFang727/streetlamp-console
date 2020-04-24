@@ -79,7 +79,7 @@ const Model: LoginModelType = {
 
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.account_type ? 'admin' : 'user', payload.userid);
+      setAuthority(payload.userid === 2 ? 'admin' : 'user', payload.userid);
       return {
         ...state,
         status: payload.status,
